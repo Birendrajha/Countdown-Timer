@@ -3,7 +3,7 @@ import '../styles/App.css';
 
 const App = () => {
   // write your code here 
-  const [num,setTime] = useState(0)
+  const [time,setTime] = useState()
   const [start,setStart] = useState(false)
 //  countdown()=>{
 //    if(time>0){
@@ -15,17 +15,23 @@ const App = () => {
 //  }
 
 function countdown(event){
-  let num = parseInt(event.target.value);
-  setStart(true);
- num =  Math.floor(num)
-  document.getElementById("current-time").innerText=num;
-  if(num>0){
+  
+  //let tym = parseInt(event.target.value);
+  let tym = event.target.value;
+  //setTime(tym);
+  
+ tym  =  Math.floor(tym);
+     setTime(tym);
+     setStart(true);
+ 
                 const id = setInterval(()=>{
-                num = num-1;
-                  setTime(num);
+                  if(tym>0){
+                tym = tym-1;
+                  setTime(tym);
+                  }
                 },1000)
                }
-}
+
   
 
     
@@ -37,7 +43,7 @@ function countdown(event){
         </h1>
       </div>
     { start?
-      <div id="current-time">{num}</div>
+      <div id="current-time">{time}</div>
       :null
     }
     </div>
