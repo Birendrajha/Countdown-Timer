@@ -19,7 +19,9 @@ function countdown(event){
   //let tym = parseInt(event.target.value);
   let tym = event.target.value;
   //setTime(tym);
-  
+  if(tym ==0){
+    setTime(0);
+  }
  tym  =  Math.floor(tym);
      setTime(tym);
      setStart(true);
